@@ -1,0 +1,441 @@
+/* =====================================
+   ОСНОВНЫЕ НАСТРОЙКИ
+===================================== */
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    min-height: 100vh;
+    font-family: Georgia, serif;
+    background: #260d17;
+    color: #fff2d5;
+    overflow-x: hidden;
+}
+
+/* Фоновое свечение */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0;
+    pointer-events: none;
+
+    background:
+        radial-gradient(circle at 20% 20%, #a43e382b, transparent 35%),
+        radial-gradient(circle at 80% 70%, #ff9c2420, transparent 35%);
+
+    z-index: -1;
+}
+
+/* =====================================
+   ПАДАЮЩИЕ СНЕЖИНКИ
+===================================== */
+
+.snowflake {
+    position: fixed;
+    top: -20px;
+    color: #fff5df;
+    pointer-events: none;
+    z-index: 10;
+    animation: snowfall linear infinite;
+    opacity: 0.8;
+}
+
+@keyframes snowfall {
+    to {
+        transform: translateY(110vh) rotate(360deg);
+    }
+}
+
+/* =====================================
+   ОСНОВНОЙ КОНТЕЙНЕР
+===================================== */
+
+.container {
+    width: min(900px, 92%);
+    margin: 35px auto;
+
+    border: 2px solid #dba64d;
+    border-radius: 25px;
+
+    background: #581d2b;
+
+    box-shadow:
+        0 0 35px #e58c3540,
+        0 0 80px #dba64d20;
+
+    overflow: hidden;
+    position: relative;
+}
+
+/* =====================================
+   ВЕРХНЯЯ ПАНЕЛЬ
+===================================== */
+
+.top-decoration {
+    text-align: center;
+    padding: 18px;
+
+    background: #3b1320;
+    border-bottom: 1px solid #dba64d;
+
+    color: #f4cc80;
+    letter-spacing: 4px;
+    font-size: 14px;
+}
+
+/* =====================================
+   ПЕРВАЯ СТРАНИЦА
+===================================== */
+
+.start-page {
+    min-height: 570px;
+
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+
+    text-align: center;
+    padding: 35px 20px;
+
+    animation: appear 1.2s ease;
+}
+
+.small-title {
+    color: #f5c76f;
+    letter-spacing: 5px;
+    font-size: 13px;
+    margin-bottom: 20px;
+}
+
+.start-page h1 {
+    font-size: clamp(35px, 7vw, 62px);
+    color: #ffe2a0;
+
+    text-shadow: 0 0 20px #ffb33d80;
+
+    margin-bottom: 12px;
+}
+
+/* Анимированная козочка */
+
+.goat {
+    font-size: 115px;
+    margin: 20px 0;
+
+    animation: goatMove 3s ease-in-out infinite;
+
+    filter: drop-shadow(0 0 20px #ffb34b80);
+}
+
+@keyframes goatMove {
+    0%, 100% {
+        transform: translateY(0) rotate(-4deg);
+    }
+
+    50% {
+        transform: translateY(-13px) rotate(4deg);
+    }
+}
+
+.start-page p {
+    color: #f5d8ba;
+    font-size: 18px;
+    margin-bottom: 25px;
+    line-height: 1.6;
+}
+
+/* =====================================
+   ПОЛЕ ВВОДА ИМЕНИ
+===================================== */
+
+.name-input {
+    width: min(320px, 90%);
+    padding: 15px;
+
+    border: 2px solid #dba64d;
+    border-radius: 30px;
+
+    background: #fff1d7;
+    color: #581d2b;
+
+    text-align: center;
+    font-size: 17px;
+
+    outline: none;
+    margin-bottom: 18px;
+}
+
+.name-input:focus {
+    box-shadow: 0 0 15px #ffbd5b;
+}
+
+/* =====================================
+   КНОПКИ
+===================================== */
+
+.btn {
+    border: none;
+    border-radius: 30px;
+    padding: 15px 30px;
+
+    background: linear-gradient(135deg, #ffd47a, #e58b32);
+    color: #491725;
+
+    font-size: 16px;
+    font-weight: bold;
+
+    cursor: pointer;
+
+    transition: 0.3s;
+
+    box-shadow: 0 5px 15px #1c0910;
+}
+
+.btn:hover {
+    transform: translateY(-4px) scale(1.04);
+    box-shadow: 0 0 25px #ffba55;
+}
+
+.btn:active {
+    transform: scale(0.96);
+}
+
+/* =====================================
+   ВТОРАЯ СТРАНИЦА
+===================================== */
+
+.greeting-page {
+    display: none;
+    text-align: center;
+    padding: 35px 25px 45px;
+
+    animation: appear 1s ease;
+}
+
+.greeting-page.active {
+    display: block;
+}
+
+@keyframes appear {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.greeting-page h2 {
+    font-size: clamp(30px, 6vw, 48px);
+    color: #ffdc91;
+
+    margin: 20px 0;
+
+    text-shadow: 0 0 15px #ffb33d60;
+}
+
+/* Козочка на странице поздравления */
+
+.greeting-goat {
+    font-size: 100px;
+    display: inline-block;
+
+    animation: goatMove 3s ease-in-out infinite;
+}
+
+/* =====================================
+   ТЕКСТ ПОЗДРАВЛЕНИЯ
+===================================== */
+
+.greeting-text {
+    max-width: 650px;
+    margin: 20px auto;
+
+    font-size: 19px;
+    line-height: 1.8;
+
+    color: #f8e2c6;
+}
+
+/* =====================================
+   БЛОК С ПОЖЕЛАНИЯМИ
+===================================== */
+
+.wish-box {
+    margin: 30px auto;
+    padding: 25px;
+
+    max-width: 600px;
+
+    background: #3c1420;
+
+    border: 1px dashed #e9bd72;
+    border-radius: 18px;
+
+    line-height: 1.7;
+}
+
+.wish-box h3 {
+    color: #ffcf75;
+    margin-bottom: 12px;
+    font-size: 24px;
+}
+
+/* =====================================
+   ПОДАРОЧНАЯ КОРОБКА
+===================================== */
+
+.gift {
+    font-size: 75px;
+    display: inline-block;
+
+    cursor: pointer;
+    transition: 0.5s;
+
+    animation: giftGlow 2s infinite alternate;
+}
+
+@keyframes giftGlow {
+    from {
+        filter: drop-shadow(0 0 5px #ffbd54);
+    }
+
+    to {
+        filter: drop-shadow(0 0 25px #ff9e27);
+    }
+}
+
+.gift:hover {
+    transform: rotate(12deg) scale(1.15);
+}
+
+.gift-hint {
+    color: #ffcf75;
+    margin-top: 10px;
+}
+
+/* Скрытое сообщение */
+
+.hidden-message {
+    display: none;
+
+    margin: 20px auto;
+    padding: 20px;
+
+    max-width: 550px;
+
+    background: #f6d9a6;
+    color: #581d2b;
+
+    border-radius: 15px;
+
+    font-size: 18px;
+    line-height: 1.6;
+
+    animation: appear 0.7s ease;
+}
+
+.hidden-message.show {
+    display: block;
+}
+
+/* =====================================
+   НИЖНЯЯ ПАНЕЛЬ
+===================================== */
+
+.footer {
+    background: #3b1320;
+    border-top: 1px solid #dba64d;
+
+    padding: 20px;
+    text-align: center;
+
+    color: #dcb879;
+    font-size: 13px;
+}
+
+.stars {
+    color: #ffd77d;
+    font-size: 25px;
+    letter-spacing: 10px;
+
+    animation: twinkle 2s infinite alternate;
+}
+
+@keyframes twinkle {
+    from {
+        opacity: 0.5;
+    }
+
+    to {
+        opacity: 1;
+    }
+}
+
+/* =====================================
+   АНИМАЦИЯ ИСКОРOК
+===================================== */
+
+@keyframes sparkle {
+    0% {
+        transform: scale(0) rotate(0deg);
+        opacity: 1;
+    }
+
+    50% {
+        transform: scale(1.8) rotate(180deg);
+        opacity: 1;
+    }
+
+    100% {
+        transform: scale(0) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* =====================================
+   АДАПТАЦИЯ ПОД ТЕЛЕФОН
+===================================== */
+
+@media (max-width: 600px) {
+
+    .container {
+        margin: 15px auto;
+    }
+
+    .start-page {
+        min-height: 530px;
+    }
+
+    .greeting-page {
+        padding: 25px 15px;
+    }
+
+    .greeting-text {
+        font-size: 17px;
+    }
+}
+
+/* =====================================
+   УМЕНЬШЕНИЕ АНИМАЦИИ ПО НАСТРОЙКАМ
+===================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    *,
+    *::before,
+    *::after {
+        animation-duration: 0.01ms !important;
+        animation-iteration-count: 1 !important;
+        scroll-behavior: auto !important;
+    }
+}

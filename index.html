@@ -1,0 +1,146 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Новогоднее волшебство 2027</title>
+
+    <!-- Подключаем таблицу стилей CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- Контейнер для падающих снежинок -->
+    <div id="snow"></div>
+
+    <div class="container">
+
+        <!-- Верхняя декоративная панель -->
+        <div class="top-decoration">
+            ✦ ✧ НОВОГОДНЕЕ ВОЛШЕБСТВО ✧ ✦
+        </div>
+
+        <!-- ПЕРВАЯ СТРАНИЦА: ВВОД ИМЕНИ -->
+        <section class="start-page" id="startPage">
+
+            <div class="small-title">
+                ✨ SPECIAL NEW YEAR EDITION ✨
+            </div>
+
+            <h1>С Новым годом!</h1>
+
+            <div class="goat">🐐</div>
+
+            <p>
+                Год Огненной Козы уже на пороге!
+
+                Давайте узнаем, кому предназначено это поздравление.
+            </p>
+
+            <input
+                type="text"
+                id="userName"
+                class="name-input"
+                placeholder="Введите Ваше имя..."
+                maxlength="30"
+            >
+
+            <button class="btn" onclick="openGreeting()">
+                Открыть поздравление ✨
+            </button>
+
+        </section>
+
+        <!-- ВТОРАЯ СТРАНИЦА: ПОЗДРАВЛЕНИЕ -->
+        <section class="greeting-page" id="greetingPage">
+
+            <div class="stars">✦ ✧ ✦ ✧ ✦</div>
+
+            <div class="greeting-goat">🐐</div>
+
+            <h2 id="greetingTitle">С Новым годом!</h2>
+
+            <p class="greeting-text">
+                Поздравляем Вас с наступающим 2027 годом!
+                Пусть этот год принесёт много радости,
+                приятных сюрпризов, новых возможностей
+                и настоящего волшебства!
+            </p>
+
+            <!-- Блок с пожеланиями -->
+            <div class="wish-box">
+
+                <h3>🔥 Пожелание от Огненной Козы</h3>
+
+                <p id="wishText">
+                    Пусть каждый день будет наполнен
+                    теплом, улыбками и маленькими чудесами!
+                </p>
+
+                
+
+                <button class="btn" onclick="changeWish()">
+                    Ещё одно пожелание ✨
+                </button>
+
+            </div>
+
+            <p class="greeting-text">
+                А теперь Вас ждёт небольшой сюрприз...
+            </p>
+
+            <!-- Интерактивный подарок -->
+            <div class="gift" onclick="openGift()">
+                🎁
+            </div>
+
+            <p class="gift-hint">
+                Нажмите на подарок!
+            </p>
+
+            <div class="hidden-message" id="giftMessage">
+                🎉 Сюрприз открыт! 🎉
+
+                
+
+                Пусть в Вашем доме всегда будет уют,
+                в сердце — тепло, а впереди ждут
+                только хорошие события!
+
+                
+
+                С любовью и огоньком — Огненная Коза! 🐐🔥
+            </div>
+
+            
+
+            <button class="btn" onclick="location.reload()">
+                Начать заново ↻
+            </button>
+
+        </section>
+
+        <!-- ПОДВАЛ ОТКРЫТКИ -->
+        <div class="footer">
+
+            <div class="stars">✧ ✦ ✧</div>
+
+            
+
+            Создано с новогодним настроением ❤️
+
+            
+
+            © 2027 Новогоднее волшебство
+
+        </div>
+
+    </div>
+
+    <!-- Подключаем JavaScript -->
+    <script src="script.js"></script>
+
+</body>
+</html>
